@@ -1,4 +1,4 @@
-package com.compass.sprint4.demo;
+package com.compass.sprint4.political;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
