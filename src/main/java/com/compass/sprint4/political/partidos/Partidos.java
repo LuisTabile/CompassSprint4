@@ -1,5 +1,6 @@
 package com.compass.sprint4.political.partidos;
 
+import com.compass.sprint4.political.associados.Associados;
 import com.compass.sprint4.political.enums.Ideologia;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Table(name = "partidos")
 @Entity(name = "Partidos")
@@ -36,10 +38,24 @@ public class Partidos {
     private Ideologia ideologia;
 
     public Partidos(DadosCadastroPartidos dadosP) {
-        this.fundacao = dadosP.fundacao();
         this.sigla = dadosP.sigla();
         this.ideologia = dadosP.ideologia();
         this.fundacao = dadosP.fundacao();
         this.nomeP = dadosP.nomeP();
+    }
+
+    public void atualizarInformacoes(DadosUpdatePartido dados) {
+        if (dados.sigla() != null){
+            this.sigla = dados.sigla();
+        }
+        if (dados.ideologia() != null){
+            this.ideologia = dados.ideologia();
+        }
+        if (dados.fundacao() != null){
+            this.fundacao = dados.fundacao();
+        }
+        if (dados.nomeP() != null){
+            this.nomeP = dados.nomeP();
+        }
     }
 }
